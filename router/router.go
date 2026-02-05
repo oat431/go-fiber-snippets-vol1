@@ -12,7 +12,7 @@ func init() {
 
 func StartServer() {
 	app := fiber.New()
-	err := app.Listen("8080")
+	err := app.Listen(":8080")
 	if err != nil {
 		return
 	}
