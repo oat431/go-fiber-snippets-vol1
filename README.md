@@ -15,4 +15,8 @@ These snippets cover a range of functionalities (all functionalities is listed b
 - gRPC Support
 - Event Hook Support
 
+### Bonus
+- installing go module
+- installing go fiber
+
 you can find each feature snippets note file in the `note` folder.
