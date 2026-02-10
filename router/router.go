@@ -2,11 +2,13 @@ package router
 
 import (
 	"log"
+	"os"
 
 	"go-fiber-snippets/controller"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/healthcheck"
+	"github.com/joho/godotenv"
 )
 
 func init() {
@@ -25,7 +27,12 @@ func StartServer() {
 
 	// Additional routes can be added here
 
-	err := app.Listen(":8080")
+	env := godotenv.Load()
+	if env != nil {
+		log.Println("Error loading .env file")
+	}
+	port := ":" + os.Getenv("PORT")
+	err := app.Listen(port)
 	if err != nil {
 		return
 	}
