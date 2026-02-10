@@ -16,7 +16,8 @@ SECRET_KEY=your_secret_key
 
 ## Step 3: Load .env file in your Go Fiber application
 1. Open your `main.go` file and import the `godotenv` package:
-2. ```go
+2. Load the `.env` file at the beginning of your `main` function and access the environment variables using `os.Getenv`:
+```go
 import (
     "github.com/joho/godotenv"
     "log"
@@ -29,7 +30,6 @@ func main() {
         log.Fatal("Error loading .env file")
     }
 
-    // Access environment variables
     port := os.Getenv("PORT")
     databaseURL := os.Getenv("DATABASE_URL")
     secretKey := os.Getenv("SECRET_KEY")
