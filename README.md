@@ -14,6 +14,7 @@ These snippets cover a range of functionalities (all functionalities is listed b
 - WebSocket Support
 - gRPC Support
 - Event Hook Support
+- Environment Variable Management
 
 ### Bonus
 - installing go module
