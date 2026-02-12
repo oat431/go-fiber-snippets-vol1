@@ -19,7 +19,12 @@ func StartServer() {
 	app := fiber.New()
 	api := app.Group("/api")
 	v1 := api.Group("/v1")
+	redirect := v1.Group("/redirect")
+
 	v1.Get("/hello", controller.HelloWorld)
+	redirect.Get("/linkedin", controller.ToLinkedIn)
+	redirect.Get("/github", controller.ToGitHub)
+	redirect.Get("/facebook", controller.ToFacebook)
 
 	app.Get(healthcheck.LivenessEndpoint, healthcheck.New())
 	app.Get(healthcheck.ReadinessEndpoint, healthcheck.New())
