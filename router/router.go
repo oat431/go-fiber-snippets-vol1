@@ -1,6 +1,7 @@
 package router
 
 import (
+	"go-fiber-snippets/bootstap"
 	"log"
 	"os"
 
@@ -16,6 +17,12 @@ func init() {
 }
 
 func StartServer() {
+	scheduler, batchFailed := bootstap.RegisterJobs()
+	if batchFailed != nil {
+		log.Fatal("Failed to start scheduler: ", batchFailed)
+	}
+	scheduler.Start()
+
 	app := fiber.New()
 	api := app.Group("/api")
 	v1 := api.Group("/v1")
