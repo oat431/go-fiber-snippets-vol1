@@ -1,4 +1,4 @@
-package batch
+package job
 
 import (
 	"github.com/go-co-op/gocron/v2"
@@ -9,10 +9,12 @@ func RegisterDailySummary(s gocron.Scheduler) error {
 
 	_, err := s.NewJob(
 		gocron.CronJob("* * * * *", false),
-		gocron.NewTask(func() {
-			log.Info("⏳ [CRON: DailySummary] Processing...")
-		}),
+		gocron.NewTask(ExampleBusinessLogic),
 	)
 
 	return err
+}
+
+func ExampleBusinessLogic() {
+	log.Info("⏳ [CRON: DailySummary] Processing...")
 }

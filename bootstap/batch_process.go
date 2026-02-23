@@ -1,7 +1,7 @@
 package bootstap
 
 import (
-	"go-fiber-snippets/batch"
+	"go-fiber-snippets/job"
 
 	"github.com/go-co-op/gocron/v2"
 	"github.com/gofiber/fiber/v3/log"
@@ -14,7 +14,7 @@ func RegisterJobs() (gocron.Scheduler, error) {
 		return nil, err
 	}
 
-	job1 := batch.RegisterDailySummary(s)
+	job1 := job.RegisterDailySummary(s)
 	if job1 != nil {
 		log.Error("❌ Failed to register DailySummary Cron Job: ", job1)
 		return nil, job1
