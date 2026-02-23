@@ -1,4 +1,4 @@
-# Personal Fiber 4 Feature Snippets (Collection 1)
+# Personal Fiber 3 Feature Snippets (Collection 1)
 This is a collection of my personal Fiber feature snippets that I frequently use in my projects.
 These snippets cover a range of functionalities (all functionalities is listed below)
 (all snippets does not required any database or object storage just core function).
@@ -15,7 +15,6 @@ These snippets cover a range of functionalities (all functionalities is listed b
 - gRPC Support
 - Event Hook Support
 - Environment Variable Management
-- Batch Processing using framework
 
 ### Bonus
 - installing go module
