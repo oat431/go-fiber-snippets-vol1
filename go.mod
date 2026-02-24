@@ -4,10 +4,12 @@ go 1.25.0
 
 require (
 	github.com/andybalholm/brotli v1.2.0 // indirect
+	github.com/fasthttp/websocket v1.5.12 // indirect
 	github.com/go-co-op/gocron/v2 v2.19.1 // indirect
+	github.com/gofiber/contrib/v3/websocket v1.0.0 // indirect
 	github.com/gofiber/fiber/v3 v3.0.0 // indirect
 	github.com/gofiber/schema v1.6.0 // indirect
-	github.com/gofiber/utils/v2 v2.0.0 // indirect
+	github.com/gofiber/utils/v2 v2.0.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/jonboulle/clockwork v0.5.0 // indirect
@@ -16,6 +18,7 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/philhofer/fwd v1.2.0 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
+	github.com/savsgio/gotils v0.0.0-20250924091648-bce9a52d7761 // indirect
 	github.com/tinylib/msgp v1.6.3 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.69.0 // indirect

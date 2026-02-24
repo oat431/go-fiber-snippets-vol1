@@ -2,11 +2,13 @@ package router
 
 import (
 	"go-fiber-snippets/bootstap"
+	"go-fiber-snippets/middleware"
 	"log"
 	"os"
 
 	"go-fiber-snippets/controller"
 
+	"github.com/gofiber/contrib/v3/websocket"
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/healthcheck"
 	"github.com/joho/godotenv"
@@ -28,6 +30,8 @@ func StartServer() {
 	v1 := api.Group("/v1")
 	redirect := v1.Group("/redirect")
 
+	app.Use("/chat", middleware.WebSocketMiddleware)
+
 	v1.Get("/hello", controller.HelloWorld)
 	redirect.Get("/linkedin", controller.ToLinkedIn)
 	redirect.Get("/github", controller.ToGitHub)
@@ -36,6 +40,8 @@ func StartServer() {
 	app.Get(healthcheck.LivenessEndpoint, healthcheck.New())
 	app.Get(healthcheck.ReadinessEndpoint, healthcheck.New())
 	app.Get(healthcheck.StartupEndpoint, healthcheck.New())
+
+	app.Get("/chat", websocket.New(controller.WebSocketExample))
 
 	// Additional routes can be added here
 
