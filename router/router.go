@@ -29,13 +29,17 @@ func StartServer() {
 	api := app.Group("/api")
 	v1 := api.Group("/v1")
 	redirect := v1.Group("/redirect")
+	hook := v1.Group("/hook")
 
 	app.Use("/chat", middleware.WebSocketMiddleware)
+	app.Use(middleware.RequestMiddleware)
 
 	v1.Get("/hello", controller.HelloWorld)
 	redirect.Get("/linkedin", controller.ToLinkedIn)
 	redirect.Get("/github", controller.ToGitHub)
 	redirect.Get("/facebook", controller.ToFacebook)
+
+	hook.Post("/", controller.TriggerHookExample)
 
 	app.Get(healthcheck.LivenessEndpoint, healthcheck.New())
 	app.Get(healthcheck.ReadinessEndpoint, healthcheck.New())
