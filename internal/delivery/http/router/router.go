@@ -1,12 +1,11 @@
 package router
 
 import (
-	"go-fiber-snippets/bootstap"
-	"go-fiber-snippets/middleware"
+	"go-fiber-snippets/internal/bootstrap"
+	"go-fiber-snippets/internal/delivery/http/controller"
+	"go-fiber-snippets/internal/delivery/http/middleware"
 	"log"
 	"os"
-
-	"go-fiber-snippets/controller"
 
 	"github.com/gofiber/contrib/v3/websocket"
 	"github.com/gofiber/fiber/v3"
@@ -19,7 +18,7 @@ func init() {
 }
 
 func StartServer() {
-	scheduler, batchFailed := bootstap.RegisterJobs()
+	scheduler, batchFailed := bootstrap.RegisterJobs()
 	if batchFailed != nil {
 		log.Fatal("Failed to start scheduler: ", batchFailed)
 	}

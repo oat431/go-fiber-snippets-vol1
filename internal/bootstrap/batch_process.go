@@ -1,7 +1,7 @@
-package bootstap
+package bootstrap
 
 import (
-	"go-fiber-snippets/job"
+	"go-fiber-snippets/internal/job"
 
 	"github.com/go-co-op/gocron/v2"
 	"github.com/gofiber/fiber/v3/log"

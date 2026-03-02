@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-fiber-snippets/router"
+	"go-fiber-snippets/internal/delivery/http/router"
 )
 
 func main() {
