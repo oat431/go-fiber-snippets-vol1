@@ -24,6 +24,8 @@ func StartServer() {
 	}
 	scheduler.Start()
 
+	graphql := bootstrap.NewAppContainer()
+
 	app := fiber.New()
 	api := app.Group("/api")
 	v1 := api.Group("/v1")
@@ -32,6 +34,7 @@ func StartServer() {
 
 	app.Use("/chat", middleware.WebSocketMiddleware)
 	app.Use(middleware.RequestMiddleware)
+	app.Post("/graphql", graphql.GraphQLController.ExecuteQuery)
 
 	v1.Get("/hello", controller.HelloWorld)
 	redirect.Get("/linkedin", controller.ToLinkedIn)

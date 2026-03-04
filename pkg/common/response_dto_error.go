@@ -1,4 +1,4 @@
-package errors
+package common
 
 type ResponseDTOError struct {
 	httpCode  int

@@ -1,16 +1,16 @@
 package controller
 
 import (
-	"go-fiber-snippets/internal/domain"
+	"go-fiber-snippets/pkg/common"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/log"
 )
 
 func HelloWorld(c fiber.Ctx) error {
-	response := domain.ResponseDTO[string]{
+	response := common.ResponseDTO[string]{
 		Data:   "Hello, World!",
-		Status: domain.SUCCESS,
+		Status: common.SUCCESS,
 		Error:  nil,
 	}
 	log.Info(c.Method() + " " + c.Path() + "\n")
