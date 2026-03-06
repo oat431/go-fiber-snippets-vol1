@@ -15,6 +15,7 @@ These snippets cover a range of functionalities (all functionalities is listed b
 - gRPC Support
 - Event Hook Support
 - Environment Variable Management
+- Unit Testing For Each Topic
 
 ### Bonus
 - installing go module
