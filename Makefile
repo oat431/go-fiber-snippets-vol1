@@ -1,30 +1,28 @@
 .PHONY: build run test clean tidy
 
-APP_NAME=api
-MAIN_FILE=cmd/api/main.go
+APP_NAME = api
+MAIN     = cmd/api/main.go
+BIN_DIR  = bin
 
-# Build the application
 build:
-	@echo "Building..."
-	@go build -o bin/$(APP_NAME) $(MAIN_FILE)
+	@go build -o $(BIN_DIR)/$(APP_NAME) $(MAIN)
 
-# Run the application directly
 run:
-	@echo "Running..."
-	@go run $(MAIN_FILE)
+	@go run $(MAIN)
 
-# Run tests
 test:
-	@echo "Testing..."
-	@go test -v ./...
+	@go test -v -count=1 ./...
 
-# Clean the build directory
+test-cover:
+	@go test -v -count=1 -coverprofile=coverage.out ./...
+	@go tool cover -html=coverage.out -o coverage.html
+
 clean:
-	@echo "Cleaning..."
 	@go clean
-	@rm -rf bin/
+	@rm -rf $(BIN_DIR) coverage.out coverage.html
 
-# Tidy module dependencies
 tidy:
-	@echo "Tidying..."
 	@go mod tidy
+
+lint:
+	@golangci-lint run ./...
